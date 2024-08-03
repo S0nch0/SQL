@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TasksListAdapter(var items:List<Tasks> = emptyList()):RecyclerView.Adapter<EmployeeViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
+class TasksListAdapter(var items:List<Tasks> = emptyList()):RecyclerView.Adapter<TaskViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val listItemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-        return EmployeeViewHolder(listItemView)
+        return TaskViewHolder(listItemView)
     }
 
     fun updateItems(itemsToUpdate:List<Tasks>){
@@ -18,12 +18,12 @@ class TasksListAdapter(var items:List<Tasks> = emptyList()):RecyclerView.Adapter
     }
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.task.text = items[position].task
     }
 
 }
 
-class EmployeeViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+class TaskViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
     val task: TextView = itemView.findViewById(R.id.task)
 }

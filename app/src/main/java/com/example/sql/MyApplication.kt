@@ -5,17 +5,21 @@ import androidx.room.Room
 
 class MyApplication:Application() {
 
-    lateinit var repo:TasksRepository
+    lateinit var repo: TasksRepository
+
 
     override fun onCreate() {
         super.onCreate()
-        val db = Room.databaseBuilder(this, TaskDatabase::class.java, "task_database")
+        instance = this
+        val db = Room.databaseBuilder(this, TasksDatabase::class.java, "task_database")
             .build()
         repo = TasksRepository(db)
     }
 
-    companion object{
-        private lateinit var instance:MyApplication
+    companion object {
+        private lateinit var instance: MyApplication
         fun getApp() = instance
     }
 }
+
+

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 
 class TasksViewModel: ViewModel() {
     private val repo = MyApplication.getApp().repo
+
     private val _listState = MutableLiveData<ListState>(ListState.EmptyList)
     val listState: LiveData<ListState> = _listState
     private val observer = Observer<List<Tasks>> {
@@ -31,7 +32,7 @@ class TasksViewModel: ViewModel() {
     }
 
     sealed class ListState {
-        data object EmptyList:ListState()
+        object EmptyList:ListState()
         data class UpdatedList(val list: List<Tasks>):ListState()
     }
 }

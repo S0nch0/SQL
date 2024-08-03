@@ -24,7 +24,7 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity()).get(TasksViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[TasksViewModel::class.java]
         val listView: RecyclerView = view.findViewById(R.id.listView)
         val fab: FloatingActionButton = view.findViewById(R.id.floatingActionButton)
 
@@ -43,7 +43,7 @@ class ListFragment : Fragment() {
         fab.setOnClickListener {
             val fragment = AddTaskFragment()
             parentFragmentManager.beginTransaction()
-                .add(R.id.container, fragment)
+                .replace(R.id.container, fragment)
                 .addToBackStack(fragment.javaClass.name)
                 .commit()
         }

@@ -2,17 +2,17 @@ package com.example.sql
 
 import java.util.concurrent.Executors
 
-class TasksRepository (private val database: TaskDatabase) {
+class TasksRepository (private val database: TasksDatabase) {
 
     private val executor = Executors.newSingleThreadExecutor()
 
-    fun getAll() = database.taskDAO().getAll()
+    fun getAll() = database.tasksDao().getAll()
 
     fun add(task: Tasks){
-        executor.execute{ database.taskDAO().add(task) }
+        executor.execute{ database.tasksDao().add(task) }
     }
 
     fun remove(task: Tasks){
-        executor.execute{ database.taskDAO().delete(task) }
+        executor.execute{ database.tasksDao().delete(task) }
     }
 }

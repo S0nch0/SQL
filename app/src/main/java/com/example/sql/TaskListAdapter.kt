@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TasksListAdapter(var items:List<Tasks> = emptyList()):RecyclerView.Adapter<TaskViewHolder>() {
+class TasksListAdapter(var items:List<ListFragment.Task> = emptyList()):RecyclerView.Adapter<TaskViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val listItemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         return TaskViewHolder(listItemView)
     }
 
-    fun updateItems(itemsToUpdate:List<Tasks>){
+    fun updateItems(itemsToUpdate:List<ListFragment.Task>){
         items = itemsToUpdate
         notifyDataSetChanged()
     }

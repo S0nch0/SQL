@@ -1,5 +1,7 @@
 [versions]
-agp = "8.4.1"
+agp = "8.5.1"
+firebaseBom = "33.2.0"
+firebaseDatabaseKtx = "21.0.0"
 kotlin = "1.8.20"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -15,6 +17,9 @@ roomRuntimeAndroid = "2.5.2"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntimeAndroid" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntimeAndroid" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-database-ktx = { module = "com.google.firebase:firebase-database-ktx", version.ref = "firebaseDatabaseKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
